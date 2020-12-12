@@ -1,13 +1,17 @@
 from django.shortcuts import render, redirect
+from django.views.generic import View
 
 
 # Authentication Related Views
-def get_user_registration(request):
-    return render(request, 'authentication/register.html')
 
+class UserRegistration(View):
+    @staticmethod
+    def get(request):
+        return render(request, 'authentication/register.html')
 
-def save_user_registration(request):
-    return redirect('/dashboard')
+    @staticmethod
+    def post(request):
+        return redirect('/dashboard')
 
 
 def get_user_login(request):
